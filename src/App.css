@@ -1,0 +1,10 @@
+header {
+  background-color: antiquewhite;
+  padding: 1em;
+}
+nav > a {
+  padding: 0.5em 1em;
+}
+.active {
+  background-color: #e4ae5c;
+}
