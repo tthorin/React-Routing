@@ -1,19 +1,11 @@
 import './App.css'
-import {BrowserRouter as Router, Routes, Route, NavLink, useNavigate} from 'react-router-dom'
-import { useEffect } from 'react'
+import {BrowserRouter as Router, Routes, Route, NavLink} from 'react-router-dom'
 import Home from './components/Home'
 import Products from './components/Products'
 import Show404 from './components/Show404'
-import Splash from './components/Splash'
+import withSplashScreen from './components/withSplashScreen'
 
 function App() {
-
-  const showSplash = () => {
-    useNavigate("/splash", {replace: true})
-  }
-  useEffect(()=>{
-    showSplash()
-  },[])
 
   return (
     <Router>
@@ -28,7 +20,6 @@ function App() {
           <Routes>
             <Route path="/products" element= {<Products/>} />
             <Route path="/home" element= {<Home />} />
-            <Route path="/splash" element= {<Splash />} />
             <Route path="/" element= {<Home />} />
             <Route path="/*" element= {<Show404 />} />
           </Routes>
@@ -39,4 +30,4 @@ function App() {
   )
 }
 
-export default App
+export default withSplashScreen(App);
